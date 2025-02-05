@@ -106,11 +106,11 @@ class Journal
         try
         {
             string _fullfilename = filename + ".txt";
-            using (StreamWriter writer = new StreamWriter(_fullfilename))
+            using (StreamWriter _writer = new StreamWriter(_fullfilename))
             {
                 foreach (Entry _entry in _entries)
                 {
-                    writer.WriteLine($"{_entry._Date}|{_entry._Prompt}|{_entry._Response}");
+                    _writer.WriteLine($"{_entry._Date}|{_entry._Prompt}|{_entry._Response}");
                 }
             }
             Console.WriteLine("Journal saved successfully.");
