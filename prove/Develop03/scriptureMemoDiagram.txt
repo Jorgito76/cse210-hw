@@ -1,0 +1,88 @@
+Classes Needed:
+Scripture Class -> displays the references that are stored, display the scripture with stuff hidden. And some not. Check if all the words are hidden. Will quit program
+Reference Class ->  book, verse, text of a scripture 
+Word Classs -> Provdies the method to hide the word. 
+ 
+
+ 
+Class: Reference
+Fields:
+_book
+_chapter
+_verse
+
+Methods:
+referenceString() → converts the fields into a string with the right format Book Chapter: Verse - John 3:16
+
+
+Class: Scripture
+Fields:
+_scriptureReference → stores the reference of a scripture
+_scriptureText → stores the text of a certain reference
+_random → this will choose the few (3) random words to hide
+
+
+Methods:
+displayScripture() → display the scripture based on what's hidden and what's not
+hideWord() → used to hide a random word in the scripture
+allWordHidden() → this will keep count of how many are hidden so that it needs to end. 
+
+
+Class: Word
+Fields:
+_visible 
+_hidden 
+
+Methods:
+Word(text) 
+Hide() 
+Hidden (getter)
+
+
+ 
++------------------+
+|     Program      |
++------------------+
+| - Scripture _scripture |
++------------------+
+| + Main(args)     |
++------------------+
+ 
+Contains ⬇
+ 
++------------------+
+|     Scripture    |
++------------------+
+| - Reference _reference |
+| - List<Word> _words |
+| - Random _random |
++------------------+
+| + Scripture(referenceText, text) |
+| + Display() |
+| + HideRandomWords(count) |
+| + AllWordsHidden() |
++------------------+
+ 
+Contains ⬇
+ 
++------------------+
+|     Reference    |
++------------------+
+| - string _text   |  
++------------------+
+| + Reference(text)|
+| + Text (getter)  |
++------------------+
+ 
+Contains ⬇
+ 
++------------------+
+|      Word        |
++------------------+
+| - string _text   |
+| - bool _hidden   |
++------------------+
+| + Word(text)     |
+| + Hide()         |
+| + Hidden (getter)|
++------------------+
