@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-// A code template for the category of things known as 
+
 public class Word
 {
     // Variables
@@ -34,7 +34,6 @@ public class Word
         Console.Clear();
         Console.Write("\n**** Press spacebar or enter to hide words ****");
         Console.Write("\n**** Press Q to Quit ****\n");
-        // Console.Write($"{_hidden.Count}, {_result.Length}\n");
         Console.WriteLine($"{_ref}");
         for (var i = 0; i < _result.Length; i++)
         {
@@ -58,7 +57,6 @@ public class Word
         if (input.Key == ConsoleKey.Spacebar || input.Key == ConsoleKey.Enter)
         {
             GetNewHiddenWord();
-            // GetNewHiddenWord();
         }
         else if (input.Key == ConsoleKey.Q)
         {
@@ -67,8 +65,7 @@ public class Word
     }
     public void GetNewHiddenWord()
     {
-        // var cap = _hidden.Capacity;
-        // cap = _result.Length;
+        
         var random = new Random();
         var index1 = random.Next(_result.Length);
         var index2 = random.Next(_result.Length);

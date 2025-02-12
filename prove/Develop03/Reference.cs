@@ -5,7 +5,7 @@ public class Reference
 {
     // Variables
     public List<Reference> _reference = new List<Reference>();
-    private string _fileName = "DataText.txt";
+    private string _fileName = "data.txt";
     private string _key;
     private string _book;
     private int _chapter;
@@ -37,8 +37,6 @@ public class Reference
     {
         foreach (Reference item in _reference)
         {
-            // var test = item._verseEnd.Equals(0);
-            // Console.WriteLine(test);
             if (item._verseEnd.Equals(0))
             {
                 item.ReferenceOne();

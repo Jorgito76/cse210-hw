@@ -1,6 +1,5 @@
 using System;
 
-// A code template for the category of things known as 
 public class Scripture
 {
     // Variables
