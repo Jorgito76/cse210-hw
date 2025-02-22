@@ -1,0 +1,47 @@
+Class Activity (Abstract Base Class)
+Attributes (Private):
+string _name - Name of the activity.
+string _description - Description of the activity.
+int _duration - Duration of the activity in seconds.
+
+Methods (Public):
+void StartActivity() - Displays start message, sets duration, and prepares user.
+void EndActivity() - Displays ending message with duration.
+void ShowAnimation(int seconds) - Displays an animation (spinner, countdown, etc.).
+abstract void PerformActivity() - Abstract method implemented by derived classes.
+
+
+
+Class BreathingActivity (Inherits from Activity)
+Methods (Public):
+override void PerformActivity() - Guides the user through inhale/exhale cycles with countdowns.
+
+
+
+Class ReflectionActivity (Inherits from Activity)
+Attributes (Private):
+List<string> _prompts - Predefined reflection prompts.
+List<string> _questions - Predefined reflection questions.
+
+Methods (Public):
+override void PerformActivity() - Shows a random prompt and asks random reflection questions with pauses.
+string GetRandomPrompt() - Retrieves a random reflection prompt.
+string GetRandomQuestion() - Retrieves a random reflection question.
+
+
+
+Class ListingActivity (Inherits from Activity)
+Attributes (Private):
+List<string> _prompts - Predefined listing prompts.
+
+Methods (Public):
+override void PerformActivity() - Shows a random prompt and records user input until time runs out.
+string GetRandomPrompt() - Retrieves a random listing prompt.
+
+
+
+Class Menu
+Methods (Public):
+void DisplayMenu() - Shows menu options for activity selection.
+Activity SelectActivity(int choice) - Returns the chosen activity.
+
