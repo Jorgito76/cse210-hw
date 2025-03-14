@@ -1,0 +1,163 @@
+Classes Needed:
+
+Program -> 
+The Program class acts as the entry point of the application, managing user interaction and the main execution loop.
+
+Goal (Abstract Base Class) ->
+Defines the core structure for all goals.
+Stores common attributes and provides essential methods for goal execution.
+
+SimpleGoal (Inherits from Goal) ->
+A goal that can be marked complete, rewarding the user with points.
+Implements the RecordEvent method for completion.
+
+EternalGoal (Inherits from Goal) ->
+A goal that is never complete but accumulates points each time it is recorded.
+Implements the RecordEvent method to track multiple completions.
+
+ChecklistGoal (Inherits from Goal) ->
+A goal that must be completed a certain number of times before being finished.
+Tracks progress and grants a bonus upon completion.
+
+Menu ->
+Displays menu options for goal management.
+Allows the user to create goals, record progress, and view status.
+
+---------------------------------------------------------------------------------------------------
+
+Class: Program
+Fields:
+List<Goal> _goals → Stores the list of all goals.
+
+Methods:
+Program() → Initializes the goals list.
+Main() → The entry point of the program. It:
+    Displays the menu and allows the user to choose an action.
+    Manages goal creation and tracking.
+    Runs an execution loop for user interaction.
+
+---------------------------------------------------------------------------------------------------
+
+Class: Goal (Abstract Base Class)
+Fields:
+string _name → Name of the goal.
+string _description → Description of the goal.
+int _points → Points awarded upon completion.
+bool _isComplete → Tracks whether the goal is completed.
+
+Methods:
+Goal(string name, string description, int points) → Constructor that initializes goal attributes.
+RecordEvent() → Abstract method implemented by derived classes.
+GetProgress() → Returns progress status.
+GetPoints() → Retrieves points awarded for the goal.
+ToString() → Formats goal information for display.
+
+---------------------------------------------------------------------------------------------------
+
+Class: SimpleGoal (Inherits from Goal)
+Methods:
+SimpleGoal(string name, string description, int points) → Calls base constructor.
+RecordEvent() → Marks the goal as complete and grants points.
+GetProgress() → Returns "Completed" or "Not completed".
+
+---------------------------------------------------------------------------------------------------
+
+Class: EternalGoal (Inherits from Goal)
+Fields:
+int _timesRecorded → Tracks the number of times recorded.
+
+Methods:
+EternalGoal(string name, string description, int points) → Calls base constructor and initializes counter.
+RecordEvent() → Increments the recorded count and grants points.
+GetProgress() → Displays the total number of completions.
+
+---------------------------------------------------------------------------------------------------
+
+Class: ChecklistGoal (Inherits from Goal)
+Fields:
+int _targetCount → The number of times needed to complete the goal.
+int _currentCount → Tracks current progress.
+int _bonusPoints → Additional points awarded upon completion.
+
+Methods:
+ChecklistGoal(string name, string description, int points, int targetCount, int bonusPoints) → Calls base constructor and initializes tracking fields.
+RecordEvent() → Updates progress and grants points.
+GetProgress() → Displays completion status.
+GetPoints() → Returns cumulative points including bonuses.
+
+---------------------------------------------------------------------------------------------------
+
+Class: Menu
+Methods:
+Menu() → Default constructor.
+DisplayMenu() → Shows menu options for goal selection.
+SelectGoal(int choice) → Allows the user to choose a goal action.
+
+---------------------------------------------------------------------------------------------------
+
+Breaking down the classes and their uses:
+
++------------------+
+|     Program      |
++------------------+
+| - List<Goal> _goals |
++------------------+
+| + Program()     |
+| + Main(args)     |
++------------------+
+
+Contains ⬇
+
++------------------+
+|       Goal       |
++------------------+
+| - string _name |
+| - string _description |
+| - int _points |
+| - bool _isComplete |
++------------------+
+| + Goal(name, description, points) |
+| + RecordEvent() |
+| + GetProgress() |
+| + GetPoints() |
++------------------+
+
+Inherited by ⬇
+
++------------------+
+|  SimpleGoal      |
++------------------+
+| + SimpleGoal(name, description, points) |
+| + RecordEvent() |
++------------------+
+
++------------------+
+|  EternalGoal     |
++------------------+
+| - int _timesRecorded |
++------------------+
+| + EternalGoal(name, description, points) |
+| + RecordEvent() |
++------------------+
+
++------------------+
+| ChecklistGoal   |
++------------------+
+| - int _targetCount |
+| - int _currentCount |
+| - int _bonusPoints |
++------------------+
+| + ChecklistGoal(name, description, points, targetCount, bonusPoints) |
+| + RecordEvent() |
+| + GetProgress() |
+| + GetPoints() |
++------------------+
+
++------------------+
+|       Menu       |
++------------------+
+| + Menu()        |
+| + DisplayMenu() |
+| + SelectGoal(choice) |
++------------------+
+
