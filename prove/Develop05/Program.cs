@@ -4,6 +4,7 @@ using System.Globalization;
 
 class Program
 {
+    // Exceeding Requirement: I have added the ability to add negative goals if user decides to provide one
     static void Main(string[] args)
     {
         // Use to convert text to title case
