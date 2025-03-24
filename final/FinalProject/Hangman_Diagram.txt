@@ -1,0 +1,46 @@
+Here is what I'm thinking! This is not one that is finished, but I know I want to start with a menu and a list. 
+
+
++----------------------+
+|       Menu (abstract) |
++----------------------+
+| - _menu: string      |
+| - _userInput: string |
+| - _userChoice: int   |
+| - _action: int       |
+| - _wordFileName: string |
++----------------------+
+| + DisplayMenu(): void (abstract)  |
+| + UserChoice(): int               |
+| + MenuChoice(): void (abstract)   |
++----------------------+
+            ▲
+            │
+            │ (inherits)
+            ▼
++----------------------+
+|       ListMenu       |
++----------------------+
+| - _menu: string      |
++----------------------+
+| + DisplayMenu(): void |
+| + MenuChoice(): void  |
++----------------------+
+
+
+Abstract Class: Menu is an abstract class 
+Encapsulation: _userInput and _userChoice are protected, allowing access in derived classes but not externally.
+
+Methods:
+DisplayMenu() and MenuChoice() are abstract, meaning derived classes must implement them.
+UserChoice() provides input handling for numeric choices, catching format exceptions.
+
+
+
+Notes on ListMenu:
+Inherits from Menu: Implements the abstract methods DisplayMenu() and MenuChoice().
+
+Handles Menu Choices:
+Calls UserChoice() to get user input.
+Uses a switch statement to set _wordFileName and start a Hangman game.
+Allows returning to the main menu.
